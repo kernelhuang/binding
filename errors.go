@@ -150,6 +150,18 @@ func (e *Errors) Get(class, fieldName string) Errors {
 }
 */
 
+func (e *Errors) ErrorMap() map[string]Error {
+	var errs = make(map[string]Error)
+	for _, err := range *e {
+		for _, fieldName := range err.Fields() {
+			if _, ok := errs[fieldName]; !ok {
+				errs[fieldName] = err
+			}
+		}
+	}
+	return errs
+}
+
 // Fields returns the list of field names this error is
 // associated with.
 func (e Error) Fields() []string {
