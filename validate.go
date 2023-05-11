@@ -8,7 +8,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/Unknwon/com"
+	"github.com/unknwon/com"
 )
 
 // Validator is the interface that handles some rudimentary
